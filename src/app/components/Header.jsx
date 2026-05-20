@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-
 const Header = () => {
   return (
     /* ================= NAVBAR ================= */
@@ -21,47 +20,47 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <a
+          <Link
             href="#"
             className="text-[14px] text-slate-500 transition hover:text-sky-600"
           >
             List Room
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="#"
             className="text-[14px] text-slate-500 transition hover:text-sky-600"
           >
             Services
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="#"
             className="text-[14px] text-slate-500 transition hover:text-sky-600"
           >
             About
-          </a>
+          </Link>
         </li>
       </ul>
       {/* ACTIONS */}
       <div className="flex items-center gap-3 max-md:mt-3 max-md:w-full max-md:justify-center">
-        <a
-          href="#"
+        <Link
+          href="/auth/login"
           className="rounded-full border border-sky-300 px-4 py-[7px] text-[13px] font-medium text-sky-700 transition hover:bg-sky-100"
         >
           Login
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          href="/register"
           className="rounded-full bg-sky-500 px-5 py-[7px] text-[13px] font-medium text-white transition hover:bg-sky-600"
         >
           Sign Up
-        </a>
+        </Link>
       </div>
     </nav>
   );
 };
 
-export default Header;
+export default Header

@@ -1,9 +1,13 @@
-import Header from "./components/Header";
+import Hero from "./components/home/Hero";
+import Stats from "./components/home/Stats";
+import Featured from "./components/home/Featured";
 
 export default function Home() {
   return (
     <main>
-      <h1>Home Page</h1>
+      <Hero />
+      <Stats />
+      <Featured />
     </main>
   );
 }
