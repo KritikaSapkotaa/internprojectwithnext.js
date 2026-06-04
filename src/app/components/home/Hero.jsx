@@ -29,19 +29,22 @@ const Hero = () => {
   
     <i className="ri-search-line text-slate-400" />
     <input type="text" placeholder="Search by location or room type..." className="flex-1 bg-transparent text-[14px] outline-none" />
-    <select className="cursor-pointer border-l border-sky200 bg-transparent px-3 text-[13px] text-slate-500 outline-none max-md:w-full max-md:border-l-0 max-md:border-t max-md:pt-2">
+    <select className="cursor-pointer border-l border-sky-200 bg-transparent px-3 text-[13px] text-slate-500 outline-none max-md:w-full max-md:border-l-0 max-md:border-t max-md:pt-2">
       <option>Any price</option>
       <option>Under $500</option>
       <option>$500 – $1000</option>
       <option>$1000+</option>
     </select>
-    <button className="whitespace-nowrap rounded-full bg-sky500 px-6 py-2.5 text-[14px] font-medium text-white transition hover:bg-sky600 max-md:w-full">
+    <button className="whitespace-nowrap rounded-full bg-sky-500 px-6 py-2.5 text-[14px] font-medium text-white transition hover:bg-sky600 max-md:w-full">
       Search rooms
     </button>
   </div>
 </section>
 
+
+
   )
 }
+
 
 export default Hero
