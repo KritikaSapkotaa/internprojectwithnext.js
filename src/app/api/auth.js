@@ -7,5 +7,8 @@ export async function login({ email, password }) {
         password,
     });
 }
+async function signup(data) {
+  return await axios.post(`${config.apiUrl}/api/auth/register`, data);
+}
 
-export default { login };
+export default { login, signup };

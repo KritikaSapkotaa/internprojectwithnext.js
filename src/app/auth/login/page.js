@@ -1,127 +1,138 @@
 "use client";
+import { useState } from "react";
 
 import { EMAIL_REGEX } from "../../constants/regex";
 import { login } from "../../api/auth";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  async function submitForm(data) {
-    try {
-      const response = await login(data);
-
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+export default function Login() {
+  const [rememberMe, setRememberMe] = useState(false);
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Sign in to your account
-            </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(submitForm)}>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Your email
-                </label>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-root {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #0284c7, #7dd3fc);
+          overflow: hidden;
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        .login-circle {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.1);
+        }
+
+        .login-card {
+          position: relative;
+          z-index: 10;
+          width: 360px;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(12px);
+          border-radius: 18px;
+          padding: 32px 28px;
+          box-shadow: 0 10px 40px rgba(3,105,161,0.2);
+          animation: fadeIn 0.6s ease;
+        }
+
+        .logo-font {
+          font-family: 'Playfair Display', serif;
+          font-size: 26px;
+          text-align: center;
+          color: #0369a1;
+          margin-bottom: 8px;
+        }
+
+        .logo-font span { color: #38bdf8; }
+
+        .login-input:focus {
+          border-color: #0ea5e9 !important;
+          box-shadow: 0 0 0 2px rgba(14,165,233,0.15);
+        }
+      `}</style>
+
+      <div className="login-root">
+        {/* BG circles */}
+        <div className="login-circle" style={{ width: 200, height: 200, top: 30, left: 40 }} />
+        <div className="login-circle" style={{ width: 150, height: 150, bottom: 40, right: 60 }} />
+
+        <div className="login-card">
+          {/* Logo */}
+          <a href="/" className="no-underline">
+            <div className="logo-font">BASO<span>BAS</span></div>
+          </a>
+
+          {/* Subtitle */}
+          <p className="text-center text-[13px] text-slate-500 mb-6">
+            Welcome back! Login to continue
+          </p>
+
+          {/* Form */}
+          <form onSubmit={(e) => e.preventDefault()}>
+            {/* Email */}
+            <div className="mb-4">
+              <label className="block text-[12px] text-slate-500 mb-1">Email</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="login-input w-full px-3 py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="mb-4">
+              <label className="block text-[12px] text-slate-500 mb-1">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="login-input w-full px-3 py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
+              />
+            </div>
+
+            {/* Remember me + Forgot */}
+            <div className="flex justify-between items-center text-[12px] mb-[18px]">
+              <label className="flex items-center gap-1 text-slate-500 cursor-pointer">
                 <input
-                  type="email"
-                  id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  {...register("email", {
-                    required: "Email is required.",
-                    pattern: {
-                         value: EMAIL_REGEX,
-                        message: "Invalid email address.",
-                    },
-                  })}
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  {...register("password", {
-                    required: "Password is required.",
-                    minlength: {
-                        value: 6,
-                        message: "Password length must be greater than 6.",
-                    },
-                  })}
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="remember"
-                      className="text-gray-500 dark:text-gray-300"
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-                <Link
-                  href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Sign in
-              </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?{" "}
-                <Link
-                  href={"REGISTER_ROUTE"}
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Sign up
-                </Link>
-              </p>
-            </form>
-          </div>
+                Remember me
+              </label>
+              <a href="#" className="text-sky-600 no-underline hover:underline">Forgot?</a>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-[10px] bg-sky-500 hover:bg-sky-600 text-white rounded-[25px] text-[14px] font-medium cursor-pointer transition-colors border-none"
+            >
+              Login
+            </button>
+          </form>
+
+          {/* Footer */}
+          <p className="text-center text-[13px] text-slate-500 mt-[18px]">
+            Don't have an account?{" "}
+            <a href="/auth/signup" className="text-sky-600 font-medium no-underline hover:underline">
+              Sign up
+            </a>
+          </p>
         </div>
       </div>
-    </section>
+    </>
   );
-};
-
-export default Login;
+}
