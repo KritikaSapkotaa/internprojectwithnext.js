@@ -84,27 +84,27 @@ export default function Login() {
           {/* Form */}
           <form onSubmit={(e) => e.preventDefault()}>
             {/* Email */}
-            <div className="mb-4">
+            <div className="mb-1">
               <label className="block text-[12px] text-slate-500 mb-1">Email</label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="login-input w-full px-3 py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
+                className="login-input w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
               />
             </div>
 
             {/* Password */}
-            <div className="mb-4">
+            <div className="mb-1">
               <label className="block text-[12px] text-slate-500 mb-1">Password</label>
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="login-input w-full px-3 py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
+                className="login-input w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] transition-all"
               />
             </div>
 
             {/* Remember me + Forgot */}
-            <div className="flex justify-between items-center text-[12px] mb-[18px]">
+            <div className="flex justify-between items-center text-[12px] mb-1">
               <label className="flex items-center gap-1 text-slate-500 cursor-pointer">
                 <input
                   type="checkbox"
@@ -118,14 +118,14 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full py-[10px] bg-sky-500 hover:bg-sky-600 text-white rounded-[25px] text-[14px] font-medium cursor-pointer transition-colors border-none"
+              className="w-full py-1 bg-sky-500 hover:bg-sky-600 text-white rounded-[25px] text-[14px] font-medium cursor-pointer transition-colors border-none"
             >
               Login
             </button>
           </form>
 
           {/* Footer */}
-          <p className="text-center text-[13px] text-slate-500 mt-[18px]">
+          <p className="text-center text-[13px] text-slate-500 mt-1">
             Don't have an account?{" "}
             <a href="/auth/signup" className="text-sky-600 font-medium no-underline hover:underline">
               Sign up

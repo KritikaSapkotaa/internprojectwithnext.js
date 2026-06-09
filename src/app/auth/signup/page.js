@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signup } from "../../api/auth";
+import Link from "next/link";
 
 export default function SignupPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -63,9 +64,9 @@ export default function SignupPage() {
 
         <div className="signup-card">
           {/* Logo */}
-          <a href="/" className="no-underline">
+          <Link href="/" className="no-underline">
           <div className="logo-font">BASO<span>BAS</span></div>
-          </a>
+          </Link>
 
           {/* Subtitle */}
           <p className="text-center text-[13px] text-slate-500 mb-5 mt-1">
@@ -90,58 +91,58 @@ export default function SignupPage() {
                 isAdmin ? "bg-sky-500 text-white font-medium" : "text-sky-700"
               }`}
             >
-              Admin
+              Owner
             </button>
           </div>
 
           {/* Form */}
           <form onSubmit={(e) => e.preventDefault()}>
-            <div className="mb-[14px]">
+            <div className="mb-1">
               <input
                 type="text"
                 placeholder="Full Name"
-                className="w-full px-[10px] py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
+                className="w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
               />
             </div>
-            <div className="mb-[14px]">
+            <div className="mb-1">
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full px-[10px] py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
+                className="w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
               />
             </div>
-            <div className="mb-[14px]">
+            <div className="mb-1">
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full px-[10px] py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
+                className="w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
               />
             </div>
 
             {isAdmin && (
-              <div className="mb-[14px]">
+              <div className="mb-1">
                 <input
                   type="text"
                   placeholder="Admin Secret Key"
-                  className="w-full px-[10px] py-[10px] rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
+                  className="w-full px-3 py-1 rounded-lg border border-sky-200 outline-none text-[14px] focus:border-sky-500 transition-colors"
                 />
               </div>
             )}
 
             <button
               type="submit"
-              className="w-full py-[11px] mt-[10px] bg-sky-500 hover:bg-sky-600 text-white rounded-[10px] text-[14px] cursor-pointer transition-colors border-none"
+              className="w-full py-1 mt-[10px] bg-sky-500 hover:bg-sky-600 text-white rounded-[10px] text-[14px] cursor-pointer transition-colors border-none"
             >
               Sign Up
             </button>
           </form>
 
           {/* Footer */}
-          <p className="text-center text-[13px] text-slate-500 mt-[14px]">
+          <p className="text-center text-[13px] text-slate-500 mt-1">
             Already have an account?{" "}
-            <a href="/auth/login" className="text-sky-600 font-medium no-underline hover:underline">
+            <Link href="/auth/login" className="text-sky-600 font-medium no-underline hover:underline">
               Login
-            </a>
+            </Link>
           </p>
         </div>
       </div>

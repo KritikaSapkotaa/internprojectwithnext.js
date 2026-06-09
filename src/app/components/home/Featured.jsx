@@ -132,7 +132,7 @@ const Featured = () => {
       {/* ===== EVERYTHING YOU NEED ===== */}
       <section className="px-8 py-[52px]" style={{ backgroundColor: "#0369a1" }}>
         <h2
-          className="mb-[6px] text-center text-[26px] font-semibold text-sky-100"
+          className="mb-[6px] text-center text-[26px] font-semibold text-white"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Everything you need
@@ -147,10 +147,10 @@ const Featured = () => {
               key={f.title}
               className="rounded-[14px] border border-white/10 bg-white/10 px-4 py-5 text-center transition hover:bg-white/15"
             >
-              <div className="mx-auto mb-3 flex h-[46px] w-[46px] items-center justify-center rounded-xl bg-sky-600/30 text-sky-100 text-[22px]">
+              <div className="mx-auto mb-3 flex h-[46px] w-[46px] items-center justify-center rounded-xl bg-sky-600/30 text-white text-[22px]">
                 {f.icon}
               </div>
-              <div className="mb-1 text-[14px] font-medium text-sky-100">{f.title}</div>
+              <div className="mb-1 text-[14px] font-medium text-white">{f.title}</div>
               <div className="text-[12px] font-light leading-[1.5] text-white/50">{f.desc}</div>
             </div>
           ))}
