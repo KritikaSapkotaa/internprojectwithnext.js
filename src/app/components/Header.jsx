@@ -20,7 +20,7 @@ const Header = () => {
         <ul className="flex list-none gap-8">
           <li>
             <Link
-              href="#"
+              href="/explore"
               className="text-[14px] text-slate-500 no-underline transition hover:text-sky-600"
             >
               Explore
