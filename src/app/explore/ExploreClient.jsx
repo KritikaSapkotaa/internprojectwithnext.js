@@ -13,12 +13,12 @@ import {
 const heroHighlights = [
   { label: "Search", value: "Kathmandu" },
   { label: "When", value: "Available now" },
-  { label: "Price", value: "Under ₹15,000" },
+  { label: "Price", value: "Under Rs 15,000" },
 ];
 
 const roomListings = [
   {
-    title: "Cozy Single Room in Thamel",
+    title: " Single Room in Thamel",
     location: "Thamel, Kathmandu",
     city: "Kathmandu",
     price: 12000,
@@ -29,7 +29,7 @@ const roomListings = [
     img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Sunny Studio Near Lakeside",
+    title: "Double Room in Lakeside",
     location: "Lakeside, Pokhara",
     city: "Pokhara",
     price: 14500,
@@ -40,7 +40,7 @@ const roomListings = [
     img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Modern Shared Room in Patan",
+    title: " Shared Room in Patan",
     location: "Patan, Lalitpur",
     city: "Lalitpur",
     price: 9500,
@@ -51,7 +51,7 @@ const roomListings = [
     img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Quiet Room with River View",
+    title: "Single Room",
     location: "Rapti, Chitwan",
     city: "Chitwan",
     price: 10800,
